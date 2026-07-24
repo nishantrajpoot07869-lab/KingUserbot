@@ -842,7 +842,7 @@ async def add_session_handler(client, message):
 
         running_users[me.id] = new_user
 
-        await msg.edit(f"✅ **Connected Successfully!**\nUser: {me.first_name}\nID: `{me.id}`\n\nMagma Bot is now active on your account.")
+        await msg.edit(f"✅ **Connected Successfully!**\nUser: {me.first_name}\nID: `{me.id}`\n\nKing Bot is now active on your account.")
         print(f"User {me.first_name} started.")
 
     except Exception as e:
