@@ -387,6 +387,7 @@ MYSON_ART = r"""
       /ﾐ`ー―彡\  (•ㅅ•)
      / ╰    ╯ \ /    \>
 """
+
 # ==================== USERBOT HANDLERS ====================
 
 async def help_handler(client, message):
@@ -835,7 +836,7 @@ async def add_session_handler(client, message):
         new_user.add_handler(MessageHandler(allban_cmd, filters.command("allban", prefixes=".") & filters.me))
         new_user.add_handler(MessageHandler(fastallban_cmd, filters.command("fastallban", prefixes=".") & filters.me))
         new_user.add_handler(MessageHandler(end_cmd, filters.command("end", prefixes=".") & filters.me))
-         new_user.add_handler(MessageHandler(stop_cmd, filters.command("stop", prefixes=".") & filters.me))
+        new_user.add_handler(MessageHandler(stop_cmd, filters.command("stop", prefixes=".") & filters.me))
 
         new_user.add_handler(MessageHandler(auto_reply_listener, filters.incoming & ~filters.me))
 
