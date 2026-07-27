@@ -387,6 +387,31 @@ MYSON_ART = r"""
       /ﾐ`ー―彡\  (•ㅅ•)
      / ╰    ╯ \ /    \>
 """
+MEOW_TEA_ART = [
+r"🐈\nMaking Tea...",
+r"🐈\nMaking Tea...",
+r"""
+  /\_/\\
+""",
+r"""
+  /\_/\\
+ (     )
+""",
+r"""
+ /\_/\\
+(=^･^=)
+""",
+r"""
+ /\_/\\
+(=^･^=) 💫< Meow!
+ /つ☕
+""",
+r"""
+ /\_/\\
+(=^･^=) 💫< Meow! ☕🍪
+ /つ☕⊂
+   🍪🍪
+"""]
 
 # ==================== USERBOT HANDLERS ====================
 
@@ -395,6 +420,7 @@ async def help_handler(client, message):
 🔥 **KING USERBOT COMMANDS** 🔥
 
 🐱 `.cat` - Cute Cat Animation
+☕ `.tea` - Meow Tea Animation
 🌹 `.rose` - Rose Animation
 💻 `.hacker` - Hacking Animation
 ⚠️ `.error` - System Crash Animation
@@ -427,7 +453,11 @@ async def rose_handler(client, message):
     for frame in FLOWER_BLOOM:
         await smart_edit(message, f"<code>{frame}</code>", 0.6)
     await draw_art(message, ROSE_ART, footer="🌹 **FOR YOU!**")
-
+    
+async def tea_handler(client, message):
+    for frame in MEOW_TEA_ART:
+        await smart_edit(message, f"<code>{frame}</code>", 0.8)
+        
 async def hacker_handler(client, message):
     await smart_edit(message, "💻 **Hacking System...**")
     await draw_art(message, HACKER_ART, footer="💻 **SYSTEM HACKED!**")
@@ -837,6 +867,7 @@ async def add_session_handler(client, message):
         new_user.add_handler(MessageHandler(fastallban_cmd, filters.command("fastallban", prefixes=".") & filters.me))
         new_user.add_handler(MessageHandler(end_cmd, filters.command("end", prefixes=".") & filters.me))
         new_user.add_handler(MessageHandler(stop_cmd, filters.command("stop", prefixes=".") & filters.me))
+        new_user.add_handler(MessageHandler(tea_handler, filters.command("tea", prefixes=".") & filters.me))
 
         new_user.add_handler(MessageHandler(auto_reply_listener, filters.incoming & ~filters.me))
 
